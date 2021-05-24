@@ -231,6 +231,7 @@
     box-sizing: border-box;
     width: 8px;
     height: 8px;
+    border: solid 1px #666666;
     border-radius: 4px;
     background-color: #fff;
     line-height: 8px;

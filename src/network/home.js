@@ -7,8 +7,11 @@ export function getHomeData() {
   })
 }
 
-export function getGoods() {
+export function getGoods(type) {
   return request({
-    url: '/goods'
+    url: '/goods',
+    params: {
+      type
+    }
   })
 }

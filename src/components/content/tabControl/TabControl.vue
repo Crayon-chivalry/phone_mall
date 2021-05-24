@@ -25,6 +25,7 @@ export default {
   methods: {
     activeClick(index) {
       this.activeIndex = index
+      this.$emit('editGoodsType',index)
     }
   }
 }
@@ -32,7 +33,6 @@ export default {
 
 <style scoped>
   .tab-control {
-    margin-top: 3px;
     width: 100%;
     height: 40px;
     line-height: 40px;

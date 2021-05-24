@@ -8,6 +8,7 @@ const User = () => import('@/views/user/User')
 const Community = () => import('@/views/community/Community')
 const Category = () => import('@/views/category/Category')
 const Cart = () => import('@/views/cart/Cart')
+const Details = () => import('@/views/details/Details')
 
 const routes = [
   {
@@ -33,6 +34,10 @@ const routes = [
   {
     path: '/user',
     component: User
+  },
+  {
+    path: '/details',
+    component: Details
   }
 ]
 

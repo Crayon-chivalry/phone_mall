@@ -16,7 +16,7 @@ export default {
 <style scoped>
   .banner {
     width: 95%;
-    margin: 0 auto;
+    margin: 5px auto;
     height: 100px;
   }
   .banner img {
