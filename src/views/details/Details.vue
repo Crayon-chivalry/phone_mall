@@ -10,7 +10,12 @@
       <details-img :detailsImg="detailsImg" @imgLoaded="imgLoaded" ref="detailImg"/>
     </scroll>
     <back-top @click.native="backTop" v-show="showTop"/>
-    <details-bottom/>
+    <details-bottom @addCart="addCart"/>
+
+    <!-- 成功加入购物车提示 -->
+    <div class="maks" v-if="isMask">
+      加入购物车成功
+    </div>
   </div>
 </template>
 
@@ -51,7 +56,9 @@
         DetailsComm: {},
         themeTopYs: [],
         getThemeTopY: null,
-        navIndex: null
+        navIndex: null,
+        iid: null,
+        isMask: false
       }
     },
     created() {
@@ -78,6 +85,8 @@
           this.detailsImg = data.detailsImg
           // 评论信息
           this.DetailsComm = new shopComm(data)
+          // iid
+          this.iid = data.iid
         })
       },
 
@@ -101,6 +110,42 @@
 
         //backTop的显示和隐藏
         this.showTop = (-position.y) > 1000
+      },
+      // 加入购物车,加入缓存
+      addCart() {
+        console.log(this.goodInfo)
+        let goods = {
+          cover: this.detailsSwiper[0],
+          name: this.goodInfo.title,
+          price: this.goodInfo.price,
+          iid: this.iid,
+          count: 1,
+          check: false
+        }
+        // 获取缓存
+        let cart = JSON.parse(localStorage.getItem('cart'))
+        if(cart) {
+          console.log(cart)
+          let index = cart.findIndex(item => {
+            return item.iid == goods.iid
+          })
+          if(index != -1) {
+            cart[index].count++
+            localStorage.setItem('cart', JSON.stringify(cart))
+          } else {
+            cart.push(goods)
+            localStorage.setItem('cart', JSON.stringify(cart))
+          }
+        } else {
+          let cartList = []
+          cartList.push(goods)
+          localStorage.setItem('cart', JSON.stringify(cartList))
+        }
+        // 显示遮罩
+        this.isMask = true
+        setTimeout(() => {
+          this.isMask = false
+        },1000)
       }
     }
   }
@@ -119,5 +164,19 @@
   }
   .wrapper {
     height: calc(100vh - 44px - 49px);
+  }
+
+  .maks {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160px;
+    height: 40px;
+    margin-top: -20px;
+    margin-left: -80px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background-color: #000;
   }
 </style>

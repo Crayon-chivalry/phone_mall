@@ -50,7 +50,7 @@ export default {
   }
   .goods-item img {
     width: 100%;
-    height: 200px;
+    height: 180px;
   }
   .goods-info {
     font-size: 12px;

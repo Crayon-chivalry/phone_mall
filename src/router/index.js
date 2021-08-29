@@ -9,6 +9,7 @@ const Community = () => import('@/views/community/Community')
 const Category = () => import('@/views/category/Category')
 const Cart = () => import('@/views/cart/Cart')
 const Details = () => import('@/views/details/Details')
+const NewDetails = () => import('@/views/community/childcomps/NewDetails')
 
 const routes = [
   {
@@ -38,6 +39,10 @@ const routes = [
   {
     path: '/details',
     component: Details
+  },
+  {
+    path: '/newDetails',
+    component: NewDetails
   }
 ]
 

@@ -19,6 +19,7 @@
       <goods :goods-list="showGoods"/>
     </scroll>
     <back-top @click.native="backTop" v-show="showTop"/>
+    <main-tab-bar/>
   </div>
 </template>
 
@@ -32,6 +33,7 @@ import TabControl from '@/components/content/tabControl/TabControl'
 import Goods from '@/components/content/goods/Goods'
 import Scroll from '@/components/common/scroll/Scroll'
 import BackTop from '@/components/content/backTop/BackTop'
+import MainTabBar from '@/components/content/mainTabBar/MainTabBar'
 
 import {getHomeData, getGoods} from '@/network/home'
 import {debounce} from '@/common/utils'
@@ -49,7 +51,8 @@ export default {
     TabControl,
     Goods,
     Scroll,
-    BackTop
+    BackTop,
+    MainTabBar
   },
   data() {
     return {
@@ -73,6 +76,9 @@ export default {
     this.getGoodsDatas('hot')
     this.getGoodsDatas('new')
     this.getGoodsDatas('like')
+
+    // 提示 ,临时
+    // alert("打开你的控制台，切换设备工具栏，最后刷新下，体验最佳！")
   },
   mounted() {
     const refresh = debounce(this.$refs.scroll.refresh,50)
