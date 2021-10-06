@@ -10,6 +10,7 @@ const Category = () => import('@/views/category/Category')
 const Cart = () => import('@/views/cart/Cart')
 const Details = () => import('@/views/details/Details')
 const NewDetails = () => import('@/views/community/childcomps/NewDetails')
+const SubmitOrder = () => import('@/views/order/SubmitOrder')
 
 const routes = [
   {
@@ -43,6 +44,10 @@ const routes = [
   {
     path: '/newDetails',
     component: NewDetails
+  },
+  {
+    path: '/SubmitOrder',
+    component: SubmitOrder
   }
 ]
 
