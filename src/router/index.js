@@ -11,6 +11,7 @@ const Cart = () => import('@/views/cart/Cart')
 const Details = () => import('@/views/details/Details')
 const NewDetails = () => import('@/views/community/childcomps/NewDetails')
 const SubmitOrder = () => import('@/views/order/SubmitOrder')
+const Order = () => import('@/views/order/Order')
 
 const routes = [
   {
@@ -48,6 +49,10 @@ const routes = [
   {
     path: '/SubmitOrder',
     component: SubmitOrder
+  },
+  {
+    path: '/Order',
+    component: Order
   }
 ]
 

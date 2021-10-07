@@ -29,26 +29,26 @@
     </div>
 
     <div class="order">
-      <div class="order-title">
+      <div class="order-title" @click="toLink('Order')">
         <div>我的订单</div>
         <div class="order-title-other">
           <div class="order-title-row">
-            <div>查看全部订单</div>
+            <div>全部</div>
             <img src="@/assets/img/go.svg"/>
           </div>
         </div>
       </div>
       <div class="order-list">
         <div class="order-item">
-          <img src="@/assets/img/order/dfk.svg" alt="">
+          <img src="@/assets/img/order/dfk.svg" @click="toLink('Order','1')">
           <div>代付款</div>
         </div>
         <div class="order-item">
-          <img src="@/assets/img/order/dfh.svg" alt="">
+          <img src="@/assets/img/order/dfh.svg" @click="toLink('Order','2')">
           <div>代发货</div>
         </div>
         <div class="order-item">
-          <img src="@/assets/img/order/dsh.svg" alt="">
+          <img src="@/assets/img/order/dsh.svg" @click="toLink('Order','3')">
           <div>代收货</div>
         </div>
       </div>
@@ -95,6 +95,20 @@ export default {
   name: 'User',
   components: {
     MainTabBar
+  },
+  methods: {
+    toLink(path,type) {
+      if(!type) {
+        this.$router.push(path)
+      } else {
+        this.$router.push({
+          path,
+          query: {
+            type
+          }
+        })
+      }
+    }
   }
 }
 </script>
@@ -164,6 +178,7 @@ export default {
 .order-title {
   display: flex;
   justify-content: space-between;
+  padding: 6px 0 10px;
 }
 .order-title-row {
   display: flex;
@@ -176,7 +191,6 @@ export default {
   height: 20px;
 }
 .order-list {
-  margin-top: 10px;
   display: flex;
   text-align: center;
   font-size: 14px;
