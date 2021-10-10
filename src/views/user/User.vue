@@ -55,7 +55,7 @@
     </div>
 
     <div class="tool-list">
-      <div class="tool-itme">
+      <div class="tool-itme" @click="toLink('Address')">
         <div class="tool-item-left">
           <img src="@/assets/img/order/dz.svg" alt="">
           <div class="tool-title">收获地址</div>

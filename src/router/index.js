@@ -12,6 +12,7 @@ const Details = () => import('@/views/details/Details')
 const NewDetails = () => import('@/views/community/childcomps/NewDetails')
 const SubmitOrder = () => import('@/views/order/SubmitOrder')
 const Order = () => import('@/views/order/Order')
+const Address = () => import('@/views/address/Address')
 
 const routes = [
   {
@@ -53,6 +54,10 @@ const routes = [
   {
     path: '/Order',
     component: Order
+  },
+  {
+    path: '/Address',
+    component: Address
   }
 ]
 
